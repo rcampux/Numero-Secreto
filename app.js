@@ -5,6 +5,8 @@ let paragrafo = document.querySelector('p')
 paragrafo.innerHTML = 'Escolha um número entre 1 e 10'; */
 
 let numeroSecreto = gerarNumeroAleatorio();
+let tentativas = 1;
+console.log(numeroSecreto);
 
 function gerarNumeroAleatorio() {
    return parseInt(Math.random() * 10 + 1);
@@ -23,12 +25,15 @@ function verificarChute() {
     
     if (chute == numeroSecreto) {
         exibirTextoNaTela('h1','Acertou Miserávi!');
-        exibirTextoNaTela('p', 'Você descobriu o número secreto, Parabéns!!!');
+        let palavraTentativa = tentativas > 1? `tentativas` : `tentativa`;
+        let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}, Parabéns!!!`;
+        exibirTextoNaTela('p', `${mensagemTentativas}`);
     } else {
         if (chute > numeroSecreto) {
             exibirTextoNaTela('p', `O número secreto é menor que <strong>${chute}</strong>`);
         } else {
             exibirTextoNaTela('p', `O número secreto é maior que <strong>${chute}</strong>`);
         }
+        tentativas++;
     }
  }
