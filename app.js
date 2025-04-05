@@ -40,7 +40,7 @@ function verificarChute() {
     let numeroEsclhido = parseInt(Math.random() * numeroLimite + 1);
     let quantidadeDeElementosNaLista = listaDeNumerosSorteados.length;
 
-    if(quantidadeDeElementosNaLista == numerol){
+    if(quantidadeDeElementosNaLista == numeroLimite){
         listaDeNumerosSorteados = [];
     }
 
@@ -56,7 +56,7 @@ function verificarChute() {
  function exibirTextoNaTela(tag, texto) {
      let campo = document.querySelector(tag);
      campo.innerHTML = texto;
-     /* responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate: 1.2}); */
+     responsiveVoice.speak(campo.textContent, 'Brazilian Portuguese Female', {rate: 1.2});
  }
  
  function limparCampo() {
